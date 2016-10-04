@@ -18,5 +18,11 @@ typedef struct solver_parameters{
     double *zeta_x,*zeta_y,*zeta_z;
 } StructIns3DNS
 
+int ReadInputs      (void*,void*);
+int Initialize      (void*,void*);
+int OutputSolution  (void*,void*);
+int CleanUp         (void*,void*);
 
-
+#ifdef __cplusplus
+extern "C"
+#endif
