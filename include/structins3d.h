@@ -1,5 +1,6 @@
 typedef struct solver_parameters{
-/*  declare the grid parameters first */
+
+    /*  grid parameters */
     
     double *x,*y,*z;
     double *x_g,*y_g,*z_g;
@@ -16,6 +17,11 @@ typedef struct solver_parameters{
     double *xi_x,*xi_y,*xi_z;
     double *eta_x,*eta_y,*eta_z;
     double *zeta_x,*zeta_y,*zeta_z;
+    
+    /*  */
+
+
+
 } StructIns3DNS
 
 int ReadInputs      (void*,void*);
