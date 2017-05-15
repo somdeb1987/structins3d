@@ -19,31 +19,23 @@ int structins3d(int argc, char* argv[]){
     
     gettimeofday(&main_start,NULL);
         ierr=Readinputs(&solver,&mpi);
-        if(ierr){
-            printf("ReadInputs     error with status %d on process %d.\n",ierr,mpi.rank);
-            return(ierr);
-        }
+        if(ierr) return(ierr);
+      
         
         ierr = Initialize(&solver,&mpi);
-        if (ierr) {
-            printf("Initialize     error with status %d on process %d.\n",ierr,mpi.rank);
-            return(ierr);
-        }
+        if(ierr) return(ierr);
+
     gettimeofday(&solver_start,NULL);
 
 
     gettimeofday(&solver_end,NULL);
         ierr = OutputSolution(&solver,&mpi);
-        if (ierr) {
-            printf("OutputSolution error with status %d on process %d.\n",ierr,mpi.rank);
-            return(ierr);
-        }
+        if(ierr) return(ierr);
+
         
         ierr = CleanUp(&solver);
-        if (ierr) {
-            printf("CleanUp        error with status %d on process %d.\n",ierr,mpi.rank);
-            return(ierr);
-        }
+        if(ierr) return(ierr);
+
 
     if (!mpi.rank) printf("Finished.\n");
     gettimeofday(&main_end,NULL);
